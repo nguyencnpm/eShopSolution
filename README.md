@@ -2,6 +2,10 @@
 ## Technologies
 - ASP.NET Core 3.1
 - Entity Frameword Core 3.1
+## Install-Package
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.Tools
 ## YouTube tutorial
 ## How to configure and run
 ## How to contribute
