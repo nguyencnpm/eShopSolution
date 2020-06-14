@@ -13,6 +13,8 @@ namespace eShopSolution.Data.Configurations
         {
             builder.ToTable("Products");
             builder.HasKey(p=>p.id);
+            builder.Property(p => p.id).UseIdentityColumn();
+
             builder.Property(p => p.Price).IsRequired();
             builder.Property(p => p.OriginalPrice).IsRequired();
             builder.Property(p => p.Stock).IsRequired().HasDefaultValue(0);

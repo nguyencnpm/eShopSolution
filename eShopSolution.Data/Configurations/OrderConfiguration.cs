@@ -13,7 +13,14 @@ namespace eShopSolution.Data.Configurations
         {
             builder.ToTable("Orders");
             builder.HasKey(o => o.Id);
+            builder.Property(o => o.Id).UseIdentityColumn();
+
+            builder.Property(o => o.OrderDate).HasDefaultValue(DateTime.Now);
             builder.Property(o => o.ShipEmail).IsUnicode(false).HasMaxLength(50);
+
+            builder.Property(o => o.ShipAddress).IsRequired().HasMaxLength(200);
+            builder.Property(o => o.ShipName).IsRequired().HasMaxLength(200);
+            builder.Property(o => o.ShipPhoneNumber).IsRequired().HasMaxLength(200);
         }
     }
 }
