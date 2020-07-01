@@ -13,8 +13,8 @@ namespace eShopSolution.Data.Configurations
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.ToTable("Categories");
-            builder.HasKey(c => c.id);
-            builder.Property(c => c.id).UseIdentityColumn();
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id).UseIdentityColumn();
 
             builder.Property(c => c.Status).HasDefaultValue(Status.Active);
         }
