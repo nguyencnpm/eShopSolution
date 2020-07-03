@@ -21,6 +21,8 @@ namespace eShopSolution.Data.Configurations
             builder.Property(o => o.ShipAddress).IsRequired().HasMaxLength(200);
             builder.Property(o => o.ShipName).IsRequired().HasMaxLength(200);
             builder.Property(o => o.ShipPhoneNumber).IsRequired().HasMaxLength(200);
+
+            builder.HasOne(o => o.AppUser).WithMany(u => u.Orders).HasForeignKey(o => o.UserId);
         }
     }
 }
