@@ -21,8 +21,6 @@ namespace eShopSolution.BackendApi.Controllers
         public IActionResult Index()
         {
             return Ok();
-        }
-
-        
+        }      
     }
 }

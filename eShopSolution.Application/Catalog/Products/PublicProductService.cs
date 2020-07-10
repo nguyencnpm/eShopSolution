@@ -16,14 +16,14 @@ namespace eShopSolution.Application.Catalog.Products
             _context = context;
         }
 
-        public async Task<List<ProductViewModel>> GetAll()
+        public async Task<List<ProductViewModel>> GetAll(string languageId)
         {
             //1. Select join
             var query = from p in _context.Products
                         join pt in _context.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId
                         join c in _context.Categories on pic.CategoryId equals c.Id
-                        // where pt.Name.Contains(request.Keyword)
+                        where pt.LanguageId == languageId
                         select new { p, pt, pic };
             //3. Paging
             int totalRow = await query.CountAsync();
@@ -54,9 +54,14 @@ namespace eShopSolution.Application.Catalog.Products
                         join pt in _context.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId
                         join c in _context.Categories on pic.CategoryId equals c.Id
+                        
                         // where pt.Name.Contains(request.Keyword)
                         select new { p, pt, pic };
             //2. Filter 
+            if (!string.IsNullOrEmpty(request.LanguageId))
+            {
+                query = query.Where(p => p.pt.LanguageId == request.LanguageId);
+            }
 
             if (request.CategoryId.HasValue && request.CategoryId.Value>0)
             {
