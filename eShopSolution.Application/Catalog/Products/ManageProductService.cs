@@ -1,9 +1,9 @@
 ﻿using eShopSolution.Application.common;
 using eShopSolution.Data.EF;
 using eShopSolution.Data.Entities;
-using eShopSulution.Utilities.Exceptions;
-using eShopSulution.ViewModels.Catalog.Products;
-using eShopSulution.ViewModels.Common;
+using eShopSolution.Utilities.Exceptions;
+using eShopSolution.ViewModels.Catalog.Products;
+using eShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;

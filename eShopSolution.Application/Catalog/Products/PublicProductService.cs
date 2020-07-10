@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using eShopSulution.ViewModels.Common;
-using eShopSulution.ViewModels.Catalog.Products;
+using eShopSolution.ViewModels.Common;
+using eShopSolution.ViewModels.Catalog.Products;
 
 namespace eShopSolution.Application.Catalog.Products
 {

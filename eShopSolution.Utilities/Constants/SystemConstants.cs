@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSulution.Utilities.Constants
+namespace eShopSolution.Utilities.Constants
 {
     public class SystemConstants
     {
