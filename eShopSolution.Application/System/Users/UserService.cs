@@ -49,12 +49,12 @@ namespace eShopSolution.Application.System.Users
                 new Claim(ClaimTypes.Role, string.Join(";",roles))
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 _config["Tokens:Issuer"],
-                _config["Tokens:key"],
+                _config["Tokens:Issuer"],
                 claims,
                 expires:DateTime.Now.AddHours(3),
                 signingCredentials: creds
@@ -65,7 +65,7 @@ namespace eShopSolution.Application.System.Users
 
         public async Task<bool> Register(RegisterRequest request)
         {
-            var user = new AppUser
+            var user = new AppUser()
             {
                 Dob = request.Dob,
                 Email=request.Email,
