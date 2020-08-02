@@ -9,6 +9,9 @@ using eShopSolution.Application.System.Users;
 using eShopSolution.Data.EF;
 using eShopSolution.Data.Entities;
 using eShopSolution.Utilities.Constants;
+using eShopSolution.ViewModels.System.Users;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -52,9 +55,19 @@ namespace eShopSolution.BackendApi
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
 
             services.AddTransient<IUserService, UserService>();
+
+            // Register a default interceptor, where MyDefaultInterceptor is a class that
+            // implements IValidatorInterceptor.
+            //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidation>();
+            //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
+
             // 
             // services.AddControllersWithViews();
-            services.AddControllers();
+            // services.AddControllers();
+
+            // use Fluent Validation
+            services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidation>());
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c => 
