@@ -22,7 +22,7 @@ namespace eShopSolution.BackendApi.Controllers
 
         [HttpPost("authenticate")]
         [AllowAnonymous] // Chua can login cung goi dc funtion nay
-        public async Task<IActionResult> Authenticate([FromForm] LoginRequest request)
+        public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)// FromForm
         {
             if (!ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace eShopSolution.BackendApi.Controllers
 
         [HttpPost("register")]
         [AllowAnonymous] // Chua can login cung goi dc funtion nay
-        public async Task<IActionResult> Register([FromForm]RegisterRequest request)
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)// FromForm
         {
             if (!ModelState.IsValid)
             {
